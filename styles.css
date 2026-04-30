@@ -1,0 +1,106 @@
+/* Kuan's Living Magazine — shared styles */
+:root{
+  --bg: #faf8f4;
+  --bg-warm: #f3efe7;
+  --ink: #1a1814;
+  --ink-soft: #4a443c;
+  --muted: #8a8275;
+  --line: #e2dcd0;
+  --accent: #8a6840;
+  --paper: #efe9dc;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: 'Noto Serif TC', 'Source Han Serif', 'Songti TC', serif;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing:antialiased;
+  font-feature-settings: "palt";
+}
+.sans{ font-family: 'Inter', 'Noto Sans TC', system-ui, sans-serif; }
+.serif{ font-family: 'Noto Serif TC', 'Source Han Serif', 'Songti TC', serif; }
+.display{ font-family: 'Cormorant Garamond', 'Noto Serif TC', serif; font-weight: 300; letter-spacing: 0.01em; }
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img{max-width:100%;display:block}
+
+/* type utilities */
+.eyebrow{
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.rule{ height:1px; background: var(--line); border:0; margin:0; }
+
+/* nav */
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 22px 56px; border-bottom: 1px solid var(--line);
+  position: sticky; top:0; background: rgba(250,248,244,0.92);
+  backdrop-filter: blur(8px); z-index: 50;
+}
+.nav .logo{ font-family:'Cormorant Garamond', serif; font-size: 22px; letter-spacing:0.18em; }
+.nav .logo small{ display:block; font-size:9px; letter-spacing:0.4em; color:var(--muted); margin-top:2px; font-family:'Inter',sans-serif;}
+.nav ul{list-style:none;display:flex;gap:38px;margin:0;padding:0}
+.nav ul a{ font-family:'Inter',sans-serif; font-size:12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); transition: color .25s; }
+.nav ul a:hover{ color: var(--ink); }
+.nav .sub{ font-family:'Inter',sans-serif; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; padding:8px 16px; border:1px solid var(--ink); border-radius:0; transition: all .25s;}
+.nav .sub:hover{ background: var(--ink); color: var(--bg);}
+
+/* covers — kenburns animation */
+.cover{
+  position: relative; overflow:hidden; background:#222;
+  isolation: isolate;
+}
+.cover::before{
+  content:""; position:absolute; inset:-6%;
+  background: var(--cover-grad); background-size: cover;
+  animation: kenburns 18s ease-in-out infinite alternate;
+  z-index: 0;
+}
+.cover::after{
+  content:""; position:absolute; inset:0;
+  background: radial-gradient(120% 80% at 50% 100%, rgba(0,0,0,0.55), rgba(0,0,0,0) 60%),
+              linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.35) 100%);
+  z-index:1;
+}
+.cover .cover-inner{ position:relative; z-index:2; height:100%; padding: 28px; color:#fdfaf3; display:flex; flex-direction:column; justify-content: space-between; }
+.cover .issue-no{ font-family:'Cormorant Garamond',serif; font-size: 13px; letter-spacing:0.4em; opacity:0.85;}
+.cover .cover-title{ font-family:'Cormorant Garamond',serif; font-weight:300; font-size: clamp(40px, 5vw, 86px); line-height:1; letter-spacing:0.01em;}
+.cover .cover-sub{ font-family:'Noto Serif TC',serif; font-size: 13px; letter-spacing:0.3em; opacity:0.85; margin-top:10px;}
+.cover .cover-foot{ display:flex; justify-content: space-between; font-family:'Inter',sans-serif; font-size:10px; letter-spacing:0.3em; text-transform:uppercase; opacity:0.8;}
+
+@keyframes kenburns{
+  0% { transform: scale(1) translate(0,0); }
+  100% { transform: scale(1.12) translate(-2%, -3%); }
+}
+
+/* film grain overlay */
+.grain{
+  position:absolute; inset:0; pointer-events:none; z-index: 3; opacity: .22; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1.2 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.7'/></svg>");
+}
+
+/* hover-play indicator on covers */
+.cover .play{
+  position:absolute; bottom:20px; right:20px; z-index: 4;
+  width:36px; height:36px; border:1px solid rgba(255,255,255,.6); border-radius: 50%;
+  display:flex; align-items:center; justify-content:center;
+  opacity:0; transition: opacity .35s;
+}
+.cover:hover .play{ opacity:1; }
+.cover .play svg{ width:10px; height:10px; fill:#fff; margin-left:2px;}
+
+/* footer */
+footer.site-foot{
+  border-top:1px solid var(--line); padding: 60px 56px 40px; margin-top: 100px;
+  display:grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap:48px; font-size:13px; color:var(--ink-soft);
+}
+footer.site-foot h4{ font-family:'Inter',sans-serif; font-size:11px; letter-spacing:0.3em; text-transform:uppercase; margin:0 0 16px; color:var(--ink);}
+footer.site-foot p{margin:6px 0; line-height:1.7;}
+footer.site-foot .brand{ font-family:'Cormorant Garamond',serif; font-size:22px; letter-spacing:0.18em; color:var(--ink);}
+footer .copy{ grid-column: 1 / -1; padding-top: 36px; margin-top: 16px; border-top:1px solid var(--line);
+  font-family:'Inter',sans-serif; font-size:11px; letter-spacing:0.16em; color:var(--muted); display:flex; justify-content:space-between;}
