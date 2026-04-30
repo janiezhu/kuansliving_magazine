@@ -4,16 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Kuan's Living 寬庭 — 季刊</title>
-<template id="__bundler_thumbnail" data-bg-color="#0d0c0a">
-  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
-    <rect width="1200" height="800" fill="#0d0c0a"/>
-    <g transform="translate(600 400)" fill="none" stroke="#c9a961" stroke-width="3">
-      <rect x="-150" y="-200" width="300" height="400" rx="2"/>
-      <text x="0" y="20" font-family="serif" font-size="120" font-weight="200" text-anchor="middle" fill="#c9a961" stroke="none">K</text>
-    </g>
-    <text x="600" y="700" font-family="sans-serif" font-size="22" letter-spacing="8" text-anchor="middle" fill="#c9a961" opacity="0.7">KUAN'S LIVING</text>
-  </svg>
-</template>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@200;300;400;500;700&family=Noto+Serif+TC:wght@200;300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -411,11 +401,30 @@ body.reader-open{overflow:hidden;position:fixed;width:100%;}
 .theme-img-box.ratio-43{aspect-ratio:4/3;}
 .theme-img-box.ratio-34{aspect-ratio:3/4;}
 .theme-img-box.ratio-11{aspect-ratio:1/1;}
+.theme-img-box.ratio-169{aspect-ratio:16/9;}
 
 .theme-lead{font-family:var(--f-head);font-size:clamp(22px,4.8vw,32px);font-weight:300;line-height:1.42;color:var(--paper);margin-bottom:clamp(20px,3vw,32px);}
 .theme-body{font-family:var(--f-body);font-size:clamp(13px,3vw,14.5px);line-height:1.95;color:rgba(243,239,231,0.7);font-weight:300;margin-bottom:1.3em;}
 .theme-pull{font-family:var(--f-head);font-size:clamp(20px,4.5vw,30px);font-weight:300;color:var(--paper);line-height:1.4;border-left:1.5px solid var(--gold);padding-left:clamp(16px,3vw,26px);margin:clamp(28px,4vw,44px) 0;}
 .theme-caption{font-family:var(--f-meta);font-size:10px;letter-spacing:0.1em;color:rgba(243,239,231,0.35);margin-top:10px;line-height:1.5;}
+
+/* Interview article — same rhythm as theme-* but warm-sepia accent */
+.interview-section-kicker{font-family:var(--f-meta);font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(243,239,231,0.45);margin-bottom:18px;display:block;}
+.interview-section-title{font-family:var(--f-head);font-size:clamp(24px,6vw,44px);font-weight:300;color:var(--paper);line-height:1.22;margin:0 0 clamp(28px,4vw,40px);letter-spacing:0.005em;}
+.interview-section-title em{color:#c9856b;font-style:normal;}
+.interview-body{margin-top:0;}
+.interview-body p{font-family:var(--f-body);font-size:clamp(13px,3vw,14.5px);line-height:1.95;color:rgba(243,239,231,0.72);font-weight:300;margin-bottom:1.3em;}
+.interview-body p:last-child{margin-bottom:0;}
+.interview-pull{font-family:var(--f-head);font-size:clamp(20px,4.5vw,30px);font-weight:300;color:var(--paper);line-height:1.4;border-left:1.5px solid #c9856b;padding-left:clamp(16px,3vw,26px);margin:clamp(28px,5vw,44px) 0;letter-spacing:0.005em;}
+.interview-image-pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2.5vw,22px);margin:clamp(24px,4vw,40px) 0 clamp(28px,5vw,44px);}
+@media(max-width:540px){.interview-image-pair{grid-template-columns:1fr;}}
+
+/* Moss theme overrides for interview-* */
+html.theme-moss .interview-section-kicker{color:rgba(42,58,44,0.55);}
+html.theme-moss .interview-section-title{color:var(--paper);}
+html.theme-moss .interview-section-title em{color:#5d7a4f;}
+html.theme-moss .interview-body p{color:rgba(42,58,44,0.72);}
+html.theme-moss .interview-pull{color:var(--paper);border-left-color:#5d7a4f;}
 .theme-accent-num{font-family:var(--f-head);font-size:clamp(120px,24vw,240px);font-weight:300;color:rgba(201,169,97,0.06);line-height:1;letter-spacing:-0.03em;position:absolute;right:clamp(20px,4vw,48px);top:clamp(20px,4vw,48px);pointer-events:none;user-select:none;}
 
 /* ─── CHAPTER B 採訪篇 (warm sepia dark) ─── */
@@ -710,16 +719,16 @@ body.reader-open{overflow:hidden;position:fixed;width:100%;}
           <div class="toc-item" onclick="goTo(5)">
             <div class="toc-num">02</div>
             <div class="toc-info">
-              <span class="badge badge-interview" style="color: rgb(93, 122, 79); border-color: rgb(93, 122, 79)">採訪篇 · Interview</span>
-              <h3>陳明志的日常</h3>
-              <p>一位建築師，如何在快節奏城市裡保有緩慢的節奏</p>
+              <span class="badge badge-interview" style="color: rgb(201, 169, 97); border-color: rgb(201, 169, 97)">採訪篇 · Interview</span>
+              <h3>科琳·巴利</h3>
+              <p>靈魂的棲所：Corinne Bally 與她的「面具之家」</p>
             </div>
             <div class="toc-arrow">→</div>
           </div>
           <div class="toc-item" onclick="goTo(8)">
             <div class="toc-num">03</div>
             <div class="toc-info">
-              <span class="badge badge-product" style="color: rgb(93, 122, 79)">商品篇 · Objects</span>
+              <span class="badge badge-product" style="color: rgb(201, 169, 97)">商品篇 · Objects</span>
               <h3>物件的重量</h3>
               <p>本季精選三件，值得進入你的日常生活</p>
             </div>
@@ -810,70 +819,76 @@ body.reader-open{overflow:hidden;position:fixed;width:100%;}
       <!-- B1 採訪首頁 -->
       <div class="page ch-interview">
         <div class="interview-splash">
-          <div class="interview-splash-img">
-            <div class="ph-img">
-              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-              <span>受訪者全幅照片</span>
-            </div>
+          <div class="interview-splash-img" style="background:url('assets/interview-splash.jpg') center/cover no-repeat;">
           </div>
           <div class="interview-splash-overlay"></div>
           <div class="interview-splash-content">
             <span class="interview-chapter-label">採訪篇 · Interview</span>
-            <div class="interview-name">陳明志<em>。</em></div>
-            <div class="interview-tagline">建築師 · 慢行者<br>在快節奏城市裡，他選擇了另一種速度</div>
+            <div class="interview-name">科琳·巴利<em style="font-family: &quot;Plus Jakarta Sans&quot;">。</em></div>
+            <div class="interview-tagline">靈魂的棲所：<br>Corinne Bally 與她的「面具之家」</div>
             <div class="interview-arrow">&gt;&gt;&gt;</div>
           </div>
         </div>
       </div>
 
-      <!-- B2 採訪內文 -->
+      <!-- B2 成長背景 -->
       <div class="page ch-interview">
         <div class="interview-article">
-          <div class="interview-intro">「設計是我的工作，但慢下來，才是我的生活。」</div>
-          <div class="interview-profile">
-            <div class="interview-profile-img">
-              <div class="ph-img">
-                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-                <span>人物照</span>
-              </div>
-            </div>
-            <div>
-              <div class="interview-bio-name">陳明志</div>
-              <div class="interview-bio-role">建築師 · 工作室負責人</div>
-              <p class="interview-bio-p">畢業於成功大學建築系，旅居東京五年後返台。現於台北主持建築設計工作室，同時在各處蒐集值得存在的空間。</p>
-            </div>
-          </div>
-          <div class="qa-block">
-            <div class="qa-q">你是什麼時候決定要「慢下來」的？</div>
-            <div class="qa-a">大概是在東京的第三年。那時候工作很多，但我開始覺得，每天做了很多事，卻好像什麼都沒留下來。後來有一天，我走過一條小巷，看到一扇舊木門，就站在那裡看了很久。才發現，原來我已經很久沒有好好看一扇門了。</div>
-          </div>
-          <div class="qa-block">
-            <div class="qa-q">那種「慢」對你的設計有影響嗎？</div>
-            <div class="qa-a">非常大。我現在很少在第一次見面就提設計方案。我喜歡先去住在那個空間裡，感受它的光線和聲音。設計應該是從理解開始的，不是從圖面開始的。</div>
+          <span class="interview-section-kicker">01 · 成長背景</span>
+          <h2 class="interview-section-title">地中海的<em>光影啟蒙</em></h2>
+          <div class="interview-body">
+            <p>科琳·巴利（Corinne Bally）的美學素養，源自於一段與大自然共生的童年。出生於法國、擁有地中海血統的她，在被葡萄園環繞的鄉間大宅長大。那段日子，她學會了在靜謐中觀察四季的更迭與光線的細微變化。</p>
+            <p>母親對美的感知對她影響至深。科琳回憶道，家中從不追求浮誇的裝飾，而是充滿了精心挑選、承載著歷史韻味與靈魂的古董家具。鮮花與自然的氣息始終流淌在各個房間，這種對「真實性」與「內在美」的追求，構成了她看待世界的底色。</p>
+            <p>法國文化中對傳統的珍視，讓她在日後跨越國界時，始終帶著一種探索意義、守護歷史的目光。</p>
           </div>
         </div>
       </div>
 
-      <!-- B3 採訪延伸 -->
+      <!-- B3 找尋面具 -->
       <div class="page ch-interview">
         <div class="interview-article">
-          <div style="margin-bottom:36px;">
-            <div class="theme-img-box ratio-43" style="margin-bottom:10px;">
-              <div class="ph-img">
-                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-                <span>採訪現場照片</span>
-              </div>
-            </div>
-            <div class="theme-caption">陳明志的工作室 · 台北大安區 · 2025 年 2 月</div>
+          <span class="interview-section-kicker">02 · 找尋面具</span>
+          <h2 class="interview-section-title">從巴拿馬舊城<br>到<em>叢林深處</em></h2>
+          <div class="theme-img-box ratio-43" style="background:url('assets/interview-masks.jpg') center/cover no-repeat;margin-bottom:clamp(28px,5vw,44px);"></div>
+          <div class="interview-body">
+            <p>科琳的人生轉捩點始於愛情，也始於一本書。她在巴拿馬老城區的一間雜貨鋪裡，意外發現了幾件佈滿灰塵、被世人遺忘的恩貝拉（Embera）面具。雖然那些面具工藝粗糙、甚至尚未完成，卻散發出一種莫名的吸引力。</p>
+            <div class="interview-pull" style="border-color:#c9856b;">「不是我選擇了面具，而是面具選擇了我。」</div>
+            <p>她毅然深入達連（Darién）叢林，搭乘獨木舟在寂靜河流中航行。在密林深處，遇見了優雅如移動色彩碎片的恩貝拉婦女，她們在簡陋的環境中，以耐心與尊嚴編織出無比精美的作品。</p>
           </div>
-          <div class="qa-block">
-            <div class="qa-q">你覺得「慢」需要勇氣嗎？</div>
-            <div class="qa-a">需要，而且很大的勇氣。因為慢下來的時候，你會開始面對自己真正想要什麼。那個問題，很多人其實不敢問自己。</div>
+          <div class="theme-img-box ratio-169" style="background:url('assets/interview-masks-2.jpg') center/cover no-repeat;margin-top:clamp(28px,5vw,44px);"></div>
+        </div>
+      </div>
+
+      <!-- B4 居所 + 2 圖 -->
+      <div class="page ch-interview">
+        <div class="interview-article">
+          <span class="interview-section-kicker">03 · 居所</span>
+          <h2 class="interview-section-title">薩貢托宮殿裡的<em>時光對話</em></h2>
+          <div class="interview-image-pair">
+            <div class="theme-img-box ratio-34" style="background:url('assets/interview-home-left.jpg') center/cover no-repeat;"></div>
+            <div class="theme-img-box ratio-34" style="background:url('assets/interview-home-right.jpg') center/cover no-repeat;"></div>
           </div>
-          <div class="theme-pull" style="border-color:#c9856b;">「慢下來的時候，你才會發現，原來自己一直在追的東西，根本不是自己想要的。」</div>
-          <div class="qa-block">
-            <div class="qa-q">對讀者有什麼想說的？</div>
-            <div class="qa-a">找一件你願意花超過五分鐘看的事情。不管是一棵樹、一個杯子、還是一個陌生人的背影。從那裡開始，慢慢地，就會找到屬於你的節奏。</div>
+          <div class="interview-body">
+            <p>居住在瓦倫西亞市中心二十餘年後，科琳選擇搬遷至鄰近的小鎮薩貢托（Sagunto）。這座坐落在山海之間的小鎮，層層疊疊地刻畫著羅馬與阿拉伯文明的歷史痕跡，這種寧靜與純樸正是她所渴求的養分。</p>
+            <p>她所居住的是一棟建於 19 世紀、宛如小型宮殿的建築。碧藍色的瓷磚外牆與六個精緻的鍛鐵陽台，展現出低調而優雅的氣息。步入屋內，科琳刻意保留了不同時代的生命痕跡：傳統的瓦倫西亞瓷磚地板、高挑的天花板裝飾線條，以及 20 世紀 60 年代大膽改造的浴室瓷磚。</p>
+            <p>她並不追求風格的統一，而是讓 19 世紀的莊嚴與現代的輕盈感進行一場關於時間的對話。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- B5 改造 + 2 圖 -->
+      <div class="page ch-interview">
+        <div class="interview-article">
+          <span class="interview-section-kicker">04 · 改造</span>
+          <h2 class="interview-section-title">流動的<em>家</em></h2>
+          <div class="interview-image-pair">
+            <div class="theme-img-box ratio-34"></div>
+            <div class="theme-img-box ratio-34"></div>
+          </div>
+          <div class="interview-body">
+            <p>改造的核心在於創造流動性。她打通了廚房，保留原始的大理石水槽，將其轉變為分享美食與交流的靈魂空間。中央樓梯刪除了多餘裝飾，如同一座雕塑般連接天地。</p>
+            <p>家中的每個角落都棲息著她的面具與藏書。在書房裡，光線柔和地灑在來自敘利亞的鏡子、伊朗的殘片以及日本的花瓶上。科琳將多重文化、家族遺產與她最珍惜的恩貝拉面具混搭並置，書籍建構了空間的重量，而面具則為空間注入了安靜的靈感。</p>
+            <div class="interview-pull" style="border-color:#c9856b;">「這個家不是潮流的堆砌，而是一個深刻的個人表達——訴說著她與工匠們、與歷史、與大自然之間永恆的共鳴。」</div>
           </div>
         </div>
       </div>
@@ -1031,7 +1046,7 @@ window.addEventListener('message',e=>{
 });
 try{window.parent.postMessage({type:'__edit_mode_available'},'*');}catch(e){}
 
-const TOTAL = 12;
+const TOTAL = 14;
 let cur = 0;
 const track = document.getElementById('pagesTrack');
 const nav = document.getElementById('readerNav');
@@ -1042,11 +1057,11 @@ const metaEl = document.getElementById('readerMeta');
 const chapterMap = [
   {label:'封面',tab:0},{label:'目錄',tab:0},
   {label:'主題篇',tab:1},{label:'主題篇',tab:1},{label:'主題篇',tab:1},
-  {label:'採訪篇',tab:2},{label:'採訪篇',tab:2},{label:'採訪篇',tab:2},
+  {label:'採訪篇',tab:2},{label:'採訪篇',tab:2},{label:'採訪篇',tab:2},{label:'採訪篇',tab:2},{label:'採訪篇',tab:2},
   {label:'商品篇',tab:3},{label:'商品篇',tab:3},{label:'商品篇',tab:3},
   {label:'後記',tab:0}
 ];
-const tabPageMap = [0,2,5,8];
+const tabPageMap = [0,2,5,10];
 
 function buildDots(){
   for(let i=0;i<TOTAL;i++){
