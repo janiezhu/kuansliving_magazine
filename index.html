@@ -634,6 +634,8 @@ html.theme-moss .brand-pull{color:#0d0d0d;}
 .picks-title em{color:var(--gold);font-weight:300;white-space:nowrap;display:block;}
 .picks-intro{font-family:var(--f-body);font-size:clamp(13px,3vw,15px);line-height:1.85;color:var(--paper-mid);max-width:46ch;font-weight:300;}
 .picks-scene{aspect-ratio:16/7;margin-bottom:clamp(36px,5vw,56px);background:radial-gradient(ellipse at 50% 50%, rgba(201,169,110,0.16), rgba(13,13,13,0.92));border:0.5px solid var(--line);overflow:hidden;position:relative;}
+.picks-scene-inner{position:absolute;inset:0;background-size:cover;background-repeat:no-repeat;transition:transform 0.7s cubic-bezier(.2,.7,.2,1);}
+.picks-scene:hover .picks-scene-inner{transform:scale(1.06);}
 html.theme-moss .picks-scene{background:radial-gradient(ellipse at 50% 50%, rgba(201,169,110,0.22), rgba(232,224,216,0.85));}
 .picks-scene-cap{position:absolute;bottom:14px;left:18px;font-family:var(--f-meta);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--paper-mid);padding:6px 12px;background:rgba(13,13,13,0.5);backdrop-filter:blur(6px);}
 html.theme-moss .picks-scene-cap{background:rgba(255,255,255,0.65);color:var(--gold-mid);}
@@ -894,7 +896,8 @@ html.theme-moss .pick-img{background:radial-gradient(ellipse at 40% 50%, rgba(20
             <h2 class="picks-title">為晨光，<em>挑了 4 件</em></h2>
             <p class="picks-intro">不是床的全集 — 只是讓晨光能落腳的最小組合。一張床、一顆枕、一條毛巾、一個托盤，從睜開眼到端起咖啡的這段路。</p>
           </div>
-          <div class="picks-scene" style="background:url('assets/scene-morning.jpg') center 78%/cover no-repeat;">
+          <div class="picks-scene">
+            <div class="picks-scene-inner" style="background-image:url('assets/scene-morning.jpg');background-position:center 78%;"></div>
             <div class="picks-scene-cap">YVES DELORME · 花間悠靜</div>
           </div>
           <div class="picks-grid">
@@ -974,7 +977,8 @@ html.theme-moss .pick-img{background:radial-gradient(ellipse at 40% 50%, rgba(20
             <h2 class="picks-title">以材質，<em>說了 4 個故事</em></h2>
             <p class="picks-intro">亞麻、苎麻、羊毛、柴燒陶土 — 多一件就反而沖混。讓這四個材質各自說話，才是「迫使雙手去觸」的最佳進場。</p>
           </div>
-          <div class="picks-scene" style="background:url('assets/touch-linen.jpg') center/cover no-repeat;">
+          <div class="picks-scene">
+            <div class="picks-scene-inner" style="background-image:url('assets/touch-linen.jpg');background-position:center;"></div>
             <div class="picks-scene-cap">Touch Is Luxury · 身體記得的 4 種觸感</div>
           </div>
           <div class="picks-grid">
@@ -989,7 +993,7 @@ html.theme-moss .pick-img{background:radial-gradient(ellipse at 40% 50%, rgba(20
             </article>
             <article class="pick-card">
               <div class="pick-img">
-                <div style="position:absolute;inset:0;background:url('assets/pick-touch-02.jpg') center/cover no-repeat;"></div>
+                <div class="pick-img-inner" style="background-image:url('assets/pick-touch-02.jpg');background-position:center;"></div>
               </div>
               <div class="pick-no">02</div>
               <h3 class="pick-name">苎麻寬鬆家居服</h3>
@@ -998,7 +1002,7 @@ html.theme-moss .pick-img{background:radial-gradient(ellipse at 40% 50%, rgba(20
             </article>
             <article class="pick-card">
               <div class="pick-img">
-                <div style="position:absolute;inset:0;background:url('assets/pick-touch-03.jpg') center/cover no-repeat;"></div>
+                <div class="pick-img-inner" style="background-image:url('assets/pick-touch-03.jpg');background-position:center;"></div>
               </div>
               <div class="pick-no">03</div>
               <h3 class="pick-name">La Mère 手工陶瓷碗</h3>
@@ -1007,7 +1011,7 @@ html.theme-moss .pick-img{background:radial-gradient(ellipse at 40% 50%, rgba(20
             </article>
             <article class="pick-card">
               <div class="pick-img">
-                <div style="position:absolute;inset:0;background:url('assets/pick-touch-04.png') center/cover no-repeat;"></div>
+                <div class="pick-img-inner" style="background-image:url('assets/pick-touch-04.png');background-position:center;"></div>
               </div>
               <div class="pick-no">04</div>
               <h3 class="pick-name">寬庭甄選香氛禮盒</h3>
@@ -1052,13 +1056,13 @@ html.theme-moss .pick-img{background:radial-gradient(ellipse at 40% 50%, rgba(20
             <p class="picks-intro">餐桌織品、杯具、靠墊、一份來自義大利的香 — 許不完美的到齊，也能讓一個夜晚長一些。</p>
           </div>
           <div class="picks-scene">
-            <div style="position:absolute;inset:0;background:url('assets/social-scene.jpg') center/cover no-repeat;"></div>
+            <div class="picks-scene-inner" style="background-image:url('assets/social-scene.jpg');background-position:center;"></div>
             <div class="picks-scene-cap">Scene 03 · 六個人、一瓶酒、三小時</div>
           </div>
           <div class="picks-grid">
             <article class="pick-card">
               <div class="pick-img">
-                <div style="position:absolute;inset:0;background:url('assets/pick-social-01.jpg') center/cover no-repeat;"></div>
+                <div class="pick-img-inner" style="background-image:url('assets/pick-social-01.jpg');background-position:center;"></div>
               </div>
               <div class="pick-no">01</div>
               <h3 class="pick-name">亞麻織紋餐桌巾</h3>
@@ -1067,7 +1071,7 @@ html.theme-moss .pick-img{background:radial-gradient(ellipse at 40% 50%, rgba(20
             </article>
             <article class="pick-card">
               <div class="pick-img">
-                <div style="position:absolute;inset:0;background:url('assets/pick-social-02.jpg') center/cover no-repeat;"></div>
+                <div class="pick-img-inner" style="background-image:url('assets/pick-social-02.jpg');background-position:center;"></div>
               </div>
               <div class="pick-no">02</div>
               <h3 class="pick-name">手工切割水晶葡萄酒杯</h3>
@@ -1076,7 +1080,7 @@ html.theme-moss .pick-img{background:radial-gradient(ellipse at 40% 50%, rgba(20
             </article>
             <article class="pick-card">
               <div class="pick-img">
-                <div style="position:absolute;inset:0;background:url('assets/pick-social-03.jpg') center/cover no-repeat;"></div>
+                <div class="pick-img-inner" style="background-image:url('assets/pick-social-03.jpg');background-position:center;"></div>
               </div>
               <div class="pick-no">03</div>
               <h3 class="pick-name">蕎麥殼天然靠墊</h3>
@@ -1085,7 +1089,7 @@ html.theme-moss .pick-img{background:radial-gradient(ellipse at 40% 50%, rgba(20
             </article>
             <article class="pick-card">
               <div class="pick-img">
-                <div style="position:absolute;inset:0;background:url('assets/pick-social-04.png') center/cover no-repeat;"></div>
+                <div class="pick-img-inner" style="background-image:url('assets/pick-social-04.png');background-position:center;"></div>
               </div>
               <div class="pick-no">04</div>
               <h3 class="pick-name">Belforte · Notte di Riccione 擴香</h3>
